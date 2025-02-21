@@ -4,11 +4,11 @@ import { Box, useTheme, Typography } from "@mui/material";
 import FlexBetween from "@/components/FlexBetween";
 import PixIcon from "@mui/icons-material/Pix";
 
-type indexProps = {};
+// type indexProps = {};
 
-const Navbar: React.FC<indexProps> = () => {
+const Navbar: React.FC = () => {
   const { palette } = useTheme();
-  const [selected, setSelected] = useState("dashboard");
+  const [selected, setSelected] = useState<string>("dashboard");
 
   return (
     <FlexBetween mb="0.25rem" p="0.5rem 0rem" color={palette.grey[300]}>
