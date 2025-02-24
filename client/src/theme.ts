@@ -1,4 +1,5 @@
 export const tokens = {
+  // different hues of the same color
   grey: {
     100: "#f0f0f3",
     200: "#e1e2e7",
@@ -34,6 +35,7 @@ export const tokens = {
     800: "#614822",
     900: "#302411",
   },
+
   tertiary: {
     // purple
     500: "#8884d8",
@@ -65,6 +67,7 @@ export const themeSettings = {
     },
     background: {
       default: tokens.background.main,
+      //custom
       light: tokens.background.light,
     },
   },
