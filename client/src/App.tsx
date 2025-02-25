@@ -22,7 +22,6 @@ function App() {
               <Route path="/" element={<Dashboard />} />
               <Route path="/predictions" element={<div>predictions</div>} />
             </Routes>
-            Hi
           </Box>
         </ThemeProvider>
       </BrowserRouter>
