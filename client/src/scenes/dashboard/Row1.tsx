@@ -14,6 +14,8 @@ import {
   CartesianGrid,
   Legend,
   LineChart,
+  BarChart,
+  Bar,
 } from "recharts";
 
 // type Row1Props = {};
@@ -42,7 +44,18 @@ const Row1: React.FC = () => {
         return {
           name: month.substring(0, 3),
           revenue: revenue,
-          profit: revenue - expenses,
+          profit: (revenue - expenses).toFixed(2),
+        };
+      })
+    );
+  }, [data]);
+  const revenue = useMemo(() => {
+    return (
+      data &&
+      data[0].monthlyData.map(({ month, revenue }) => {
+        return {
+          name: month.substring(0, 3),
+          revenue: revenue,
         };
       })
     );
@@ -195,7 +208,60 @@ const Row1: React.FC = () => {
           </ResponsiveContainer>
         )}
       </DashboardBox>
-      <DashboardBox gridArea={"c"}></DashboardBox>
+      <DashboardBox gridArea={"c"}>
+        <BoxHeader
+          title="Revenue by Month"
+          subtitle="subhuman goals"
+          sideText="+4%"
+        />
+        {revenue && (
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart
+              width={500}
+              height={300}
+              data={revenue}
+              margin={{
+                top: 17,
+                right: 15,
+                left: -5,
+                bottom: 58,
+              }}
+            >
+              <defs>
+                {/**REVENUE GRADIENT */}
+                <linearGradient id="colorRevenue" x1="0" y1="0" x2="0" y2="1">
+                  <stop
+                    offset="5%"
+                    stopColor={palette.primary[300]}
+                    stopOpacity={0.8}
+                  />
+
+                  <stop
+                    offset="95%"
+                    stopColor={palette.primary[300]}
+                    stopOpacity={0.5}
+                  />
+                </linearGradient>
+              </defs>
+              <CartesianGrid vertical={false} stroke={palette.grey[800]} />
+              <XAxis
+                dataKey="name"
+                axisLine={false}
+                tickLine={false}
+                style={{ fontSize: "10px" }}
+              />
+              <YAxis
+                axisLine={false}
+                tickLine={false}
+                style={{ fontSize: "10px" }}
+              />
+              <Tooltip />
+
+              <Bar dataKey="revenue" fill="url(#colorRevenue)" />
+            </BarChart>
+          </ResponsiveContainer>
+        )}
+      </DashboardBox>
     </>
   );
 };
