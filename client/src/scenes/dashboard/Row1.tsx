@@ -22,7 +22,7 @@ import {
 
 const Row1: React.FC = () => {
   const { data } = useGetKpisQuery();
-  console.log("🚀 ~ data:", data);
+
   const { palette } = useTheme();
 
   const revenueExpenses = useMemo(() => {
