@@ -233,13 +233,13 @@ const Row1: React.FC = () => {
                   <stop
                     offset="5%"
                     stopColor={palette.primary[300]}
-                    stopOpacity={0.8}
+                    stopOpacity={0.6}
                   />
 
                   <stop
                     offset="95%"
                     stopColor={palette.primary[300]}
-                    stopOpacity={0.5}
+                    stopOpacity={0.4}
                   />
                 </linearGradient>
               </defs>
