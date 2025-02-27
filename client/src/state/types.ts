@@ -46,3 +46,15 @@ export interface GetProductsResponse {
   // monthlyData: Array<Month>;
   // dailyData: Array<Day>;
 }
+export interface GetTransactionsResponse {
+  id: string;
+  _id: string;
+  __v: number;
+  buyer: string;
+  amount: number;
+  productsIds: Array<string>;
+  createdAt: string;
+  updatedAt: string;
+  // monthlyData: Array<Month>;
+  // dailyData: Array<Day>;
+}
