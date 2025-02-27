@@ -6,7 +6,7 @@ type BoxHeaderProps = {
   icon?: React.ReactNode;
   title: string;
   subtitle?: string;
-  sideText: string;
+  sideText?: string;
 };
 
 const BoxHeader: React.FC<BoxHeaderProps> = ({
