@@ -1,19 +1,48 @@
 import BoxHeader from "@/components/BoxHeader";
 import DashboardBox from "@/components/DashboardBox";
+import FlexBetween from "@/components/FlexBetween";
 import {
   useGetKpisQuery,
   useGetProductsQuery,
   useGetTransactionsQuery,
 } from "@/state/api";
-import { Box, useTheme } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 import { DataGrid, GridCellParams } from "@mui/x-data-grid";
-import React from "react";
+import React, { useMemo } from "react";
+import { Cell, Pie, PieChart } from "recharts";
 
 const Row3: React.FC = () => {
   const { palette } = useTheme();
   const { data: transactionData } = useGetTransactionsQuery();
   const { data: kpiData } = useGetKpisQuery();
   const { data: productData } = useGetProductsQuery();
+
+  const pieColors = [palette.primary[800], palette.primary[500]];
+
+  const pieChartdata = useMemo(() => {
+    if (kpiData) {
+      const totalExpenses = kpiData[0].totalExpenses;
+      console.log(Object.entries(kpiData[0].expensesByCategory));
+      return Object.entries(kpiData[0].expensesByCategory)
+        .filter(([key, value]) => {
+          if (value) {
+            return [key, value];
+          }
+        })
+        .map(([key, value]) => {
+          return [
+            {
+              name: key,
+              value,
+            },
+            {
+              name: `${key} of Total`,
+              value: totalExpenses - value,
+            },
+          ];
+        });
+    }
+  }, [kpiData]);
 
   const productColumns = [
     {
@@ -135,7 +164,33 @@ const Row3: React.FC = () => {
           />
         </Box>
       </DashboardBox>
-      <DashboardBox gridArea={"i"}></DashboardBox>
+      <DashboardBox gridArea={"i"}>
+        <BoxHeader title="expense breakdown by category" />
+        <FlexBetween mt="-.7rem" gap="0.5rem" p="0 1rem" textAlign={"center"}>
+          {pieChartdata?.map((data, i) => (
+            <Box key={`${data[0].name}-${i}`}>
+              <PieChart width={110} height={100}>
+                <Pie
+                  stroke="none"
+                  data={data}
+                  innerRadius={18}
+                  outerRadius={35}
+                  paddingAngle={2}
+                  dataKey="value"
+                >
+                  {data.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={pieColors[index]} />
+                  ))}
+                </Pie>
+              </PieChart>
+
+              <Typography mb={`1rem`} variant="h5">
+                {data[0].name}
+              </Typography>
+            </Box>
+          ))}
+        </FlexBetween>
+      </DashboardBox>
       <DashboardBox gridArea={"j"}></DashboardBox>
     </>
   );

@@ -20,7 +20,7 @@ const BoxHeader: React.FC<BoxHeaderProps> = ({
     <FlexBetween
       //   justifyContent={"unset"}
       color={palette.grey[400]}
-      margin="1.5rem 1rem 0rem 1rem"
+      margin="1.5rem 0.75rem 0rem 1rem"
     >
       <FlexBetween>
         {icon}
