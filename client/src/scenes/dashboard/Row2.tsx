@@ -26,6 +26,25 @@ const pieData = [
   { name: "Group B", value: 400 },
 ];
 
+/**
+ * Row2 Component
+ *
+ * Displays three data visualizations related to profit and revenue, prices and expenses, and goals.
+ * Each chart is rendered using different chart types (LineChart, PieChart, and ScatterChart)
+ * to show monthly financial data, including revenue, expenses, and profit.
+ *
+ * Uses data from the `useGetKpisQuery` and `useGetProductsQuery` API hook to fetch the financial data.
+ *
+ * Charts:
+ * 1. Profit vs. Revenue (LineChart)
+ * 2. Group A vs. Group B (PieChart)
+ * 3. Product Prices vs. Expenses (ScatterChart)
+ *
+ * Uses Material UI for theming and `recharts` for chart rendering.
+ * This component is rendered in the `index.tsx` file.
+ * @returns JSX Element containing the three visualizations.
+ */
+
 const Row2 = () => {
   const { data: operationalData } = useGetKpisQuery();
   const { data: productData } = useGetProductsQuery();
@@ -33,6 +52,7 @@ const Row2 = () => {
   const { palette } = useTheme();
   const pieColors = [palette.primary[800], palette.primary[300]];
 
+  // Formats data into each data points
   const operationalExpenses = useMemo(() => {
     return (
       operationalData &&

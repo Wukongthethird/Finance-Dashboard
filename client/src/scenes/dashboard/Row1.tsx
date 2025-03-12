@@ -39,7 +39,6 @@ import {
 
 const Row1: React.FC = () => {
   // Fetching financial data from the API hook
-
   const { data } = useGetKpisQuery();
 
   const { palette } = useTheme();

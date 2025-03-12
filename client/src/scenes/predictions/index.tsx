@@ -17,8 +17,17 @@ import {
 
 import regression, { DataPoint } from "regression";
 
+/**
+ *
+ * A component that displays a revenue projection chart using a simple linear regression model.
+ * The component shows actual revenue, a regression line, and predicted revenue projection for the next year.
+ *
+ * @returns {JSX.Element} The JSX code representing the Predictions component
+ */
+
 const Predictions: React.FC = () => {
   const { palette } = useTheme();
+  // Toggles prediction line
   const [isPredictions, setIsPredictions] = useState(false);
   const { data: kpiData } = useGetKpisQuery();
 
@@ -35,8 +44,11 @@ const Predictions: React.FC = () => {
         return [i, revenue];
       }
     );
+
+    // Generate the regression line based on actual revenue data
     const regressionLine = regression.linear(formatted);
 
+    // Formats data to be displayed in the chart
     return monthData.map(({ month, revenue }, i: number) => {
       return {
         name: month,

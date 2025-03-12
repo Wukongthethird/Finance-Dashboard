@@ -4,10 +4,9 @@ import { Box, useTheme, Typography } from "@mui/material";
 import FlexBetween from "@/components/FlexBetween";
 import PixIcon from "@mui/icons-material/Pix";
 
-// type indexProps = {};
-
 const Navbar: React.FC = () => {
   const { palette } = useTheme();
+  //Highlights which tab the user is on
   const [selected, setSelected] = useState<string>("dashboard");
 
   return (

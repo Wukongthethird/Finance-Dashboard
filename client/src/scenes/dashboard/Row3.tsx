@@ -11,6 +11,18 @@ import { DataGrid, GridCellParams } from "@mui/x-data-grid";
 import React, { useMemo } from "react";
 import { Cell, Pie, PieChart } from "recharts";
 
+/**
+ * Row3 Component
+ *
+ * Data Organization.
+ * Lists out recent transactions and products sold.
+ * Expense breakdown key expenditures
+ *
+ * Uses data from the `useGetKpisQuery` , `useGetProductsQuery` and `useGetProductsQuery` .
+ * Uses Material UI for theming and `recharts` for chart rendering.
+ * This component is rendered in the `index.tsx` file.
+ * @returns JSX Element containing the three visualizations.
+ */
 const Row3: React.FC = () => {
   const { palette } = useTheme();
   const { data: transactionData } = useGetTransactionsQuery();
@@ -19,6 +31,7 @@ const Row3: React.FC = () => {
 
   const pieColors = [palette.primary[800], palette.primary[500]];
 
+  //Format Data
   const pieChartdata = useMemo(() => {
     if (kpiData) {
       const totalExpenses = kpiData[0].totalExpenses;
@@ -43,6 +56,7 @@ const Row3: React.FC = () => {
     }
   }, [kpiData]);
 
+  // Formats and styles columns headers
   const productColumns = [
     {
       field: "_id",
@@ -128,7 +142,7 @@ const Row3: React.FC = () => {
       </DashboardBox>
       <DashboardBox gridArea={"h"}>
         <BoxHeader
-          title="product drop"
+          title="transactions drop"
           sideText={`${transactionData?.length} transaction`}
         />
         <Box
