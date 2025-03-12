@@ -18,13 +18,33 @@ import {
   Bar,
 } from "recharts";
 
-// type Row1Props = {};
+/**
+ * Row1 Component
+ *
+ * Displays three data visualizations related to revenue, expenses, and profit.
+ * Each chart is rendered using different chart types (AreaChart, LineChart, and BarChart)
+ * to show monthly financial data, including revenue, expenses, and profit.
+ *
+ * Uses data from the `useGetKpisQuery` API hook to fetch the financial data.
+ *
+ * Charts:
+ * 1. Revenue vs. Expenses (AreaChart)
+ * 2. Profit vs. Revenue (LineChart)
+ * 3. Revenue by Month (BarChart)
+ *
+ * Uses Material UI for theming and `recharts` for chart rendering.
+ * This component is rendered in the `index.tsx` file.
+ * @returns JSX Element containing the three visualizations.
+ */
 
 const Row1: React.FC = () => {
+  // Fetching financial data from the API hook
+
   const { data } = useGetKpisQuery();
 
   const { palette } = useTheme();
 
+  // Formats data into each data points
   const revenueExpenses = useMemo(() => {
     return (
       data &&
@@ -37,6 +57,7 @@ const Row1: React.FC = () => {
       })
     );
   }, [data]);
+
   const revenueProfit = useMemo(() => {
     return (
       data &&

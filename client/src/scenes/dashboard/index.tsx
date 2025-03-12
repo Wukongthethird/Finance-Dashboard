@@ -4,7 +4,7 @@ import Row1 from "./Row1";
 import Row2 from "./Row2";
 import Row3 from "./Row3";
 
-//# represents the grid how each "box" will fill out at this point
+//# represents the grid how each "box" will fill on a page
 const gridTemplateLargeScreens = `
     "a b c"
     "a b c"
@@ -19,6 +19,7 @@ const gridTemplateLargeScreens = `
     "g h j"
 `;
 
+// how each box will fill out on the page with media less tahn 1000px
 const gridTemplateSmallScreens = `
     "a"
     "a"
@@ -53,16 +54,13 @@ const gridTemplateSmallScreens = `
 `;
 const Dashboard: React.FC = () => {
   const isAboveMediumScreens = useMediaQuery("(min-width:1000px)");
-
-  //   const { palette } = useTheme();
-
   return (
     <Box
       width="100%"
       height="100%"
       display={"grid"}
       gap="1.5rem"
-      //dictatexs the layout of the boxes
+      //dictates the layout of the boxes
       sx={
         isAboveMediumScreens
           ? {
