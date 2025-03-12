@@ -60,7 +60,6 @@ const Row2 = () => {
     );
   }, [productData]);
 
-  // const pieData = useMemo(() => {});
   return (
     <>
       <DashboardBox gridArea={"d"}>
@@ -72,8 +71,6 @@ const Row2 = () => {
         {
           <ResponsiveContainer width="100%" height="100%">
             <LineChart
-              // width={500}
-              // height={400}
               data={operationalExpenses}
               margin={{
                 top: 20,

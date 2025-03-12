@@ -9,6 +9,7 @@ type BoxHeaderProps = {
   sideText?: string;
 };
 
+//boxheader for each chart on dashboard
 const BoxHeader: React.FC<BoxHeaderProps> = ({
   title,
   subtitle,
@@ -17,11 +18,7 @@ const BoxHeader: React.FC<BoxHeaderProps> = ({
 }) => {
   const { palette } = useTheme();
   return (
-    <FlexBetween
-      //   justifyContent={"unset"}
-      color={palette.grey[400]}
-      margin="1.5rem 0.75rem 0rem 1rem"
-    >
+    <FlexBetween color={palette.grey[400]} margin="1.5rem 0.75rem 0rem 1rem">
       <FlexBetween>
         {icon}
         <Box width={"100%"}>

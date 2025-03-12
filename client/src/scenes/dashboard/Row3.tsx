@@ -22,7 +22,6 @@ const Row3: React.FC = () => {
   const pieChartdata = useMemo(() => {
     if (kpiData) {
       const totalExpenses = kpiData[0].totalExpenses;
-      console.log(Object.entries(kpiData[0].expensesByCategory));
       return Object.entries(kpiData[0].expensesByCategory)
         .filter(([key, value]) => {
           if (value) {
@@ -74,7 +73,6 @@ const Row3: React.FC = () => {
       field: "buyer",
       headerName: "Buyer",
       flex: 0.67,
-      // renderCell: (params: GridCellParams) => `${params.value}`,
     },
     {
       field: "amount",
@@ -86,7 +84,6 @@ const Row3: React.FC = () => {
       field: "productIds",
       headerName: "Count",
       flex: 0.1,
-      // eslint-disable-next-line
       renderCell: (params: GridCellParams) =>
         (params.value as Array<string>).length,
     },
@@ -191,7 +188,28 @@ const Row3: React.FC = () => {
           ))}
         </FlexBetween>
       </DashboardBox>
-      <DashboardBox gridArea={"j"}></DashboardBox>
+      <DashboardBox gridArea={"j"}>
+        <BoxHeader title="Overall Summary" />
+        <Box
+          height="15px"
+          margin="1.25rem 1rem 0.4rem 1rem"
+          bgcolor={palette.primary[800]}
+          borderRadius="1rem"
+        >
+          <Box
+            height="15px"
+            bgcolor={palette.primary[600]}
+            borderRadius="1rem"
+            width="40%"
+          ></Box>
+        </Box>
+        <Typography margin="0 1rem" variant="h6">
+          Orci aliquam enim vel diam. Venenatis euismod id donec mus lorem etiam
+          ullamcorper odio sed. Ipsum non sed gravida etiam urna egestas
+          molestie volutpat et. Malesuada quis pretium aliquet lacinia ornare
+          sed. In volutpat nullam at est id cum pulvinar nunc.
+        </Typography>
+      </DashboardBox>
     </>
   );
 };

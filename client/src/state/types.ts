@@ -43,8 +43,6 @@ export interface GetProductsResponse {
   transactions: Array<string>;
   createdAt: string;
   updatedAt: string;
-  // monthlyData: Array<Month>;
-  // dailyData: Array<Day>;
 }
 export interface GetTransactionsResponse {
   id: string;
@@ -55,6 +53,4 @@ export interface GetTransactionsResponse {
   productsIds: Array<string>;
   createdAt: string;
   updatedAt: string;
-  // monthlyData: Array<Month>;
-  // dailyData: Array<Day>;
 }
