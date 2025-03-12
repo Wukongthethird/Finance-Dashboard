@@ -52,10 +52,10 @@ git clone https://github.com/username/financial-dashboard.git
    npm run dev
    ```
 
-1. Start the client from the client directory
+2. Start the client from the client directory
 
    ```bash
    npm run dev
    ```
 
-1. open in browser on localhost:5173
+3. open in browser on localhost:5173
