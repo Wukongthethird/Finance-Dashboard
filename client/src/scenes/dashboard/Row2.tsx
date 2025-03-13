@@ -83,11 +83,7 @@ const Row2 = () => {
   return (
     <>
       <DashboardBox gridArea={"d"}>
-        <BoxHeader
-          title="Profit and Revenue"
-          subtitle="Subhuman behaviors"
-          sideText="+46"
-        />
+        <BoxHeader title="Profit and Revenue" sideText="+46" />
         {
           <ResponsiveContainer width="100%" height="100%">
             <LineChart
@@ -139,7 +135,7 @@ const Row2 = () => {
         }
       </DashboardBox>
       <DashboardBox gridArea={"e"}>
-        <BoxHeader title="non Human Goals" />
+        <BoxHeader title="Operational Goals" />
         <FlexBetween mt=".25rem" gap="1.5rem" pr="1rem">
           <PieChart
             width={110}

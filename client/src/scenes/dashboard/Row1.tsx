@@ -86,7 +86,7 @@ const Row1: React.FC = () => {
       <DashboardBox gridArea={"a"}>
         <BoxHeader
           title="Revenue and Expenses"
-          subtitle="Subhuman behaviors"
+          subtitle="Behaviors"
           sideText="+46"
         />
         {revenueExpenses! && (
@@ -167,11 +167,7 @@ const Row1: React.FC = () => {
       </DashboardBox>
 
       <DashboardBox gridArea={"b"}>
-        <BoxHeader
-          title="Profit and Revenue"
-          subtitle="Subhuman behaviors"
-          sideText="+46"
-        />
+        <BoxHeader title="Profit and Revenue" sideText="+46" />
         {revenueExpenses! && (
           <ResponsiveContainer width="100%" height="100%">
             <LineChart
@@ -229,11 +225,7 @@ const Row1: React.FC = () => {
         )}
       </DashboardBox>
       <DashboardBox gridArea={"c"}>
-        <BoxHeader
-          title="Revenue by Month"
-          subtitle="subhuman goals"
-          sideText="+4%"
-        />
+        <BoxHeader title="Revenue by Month" sideText="+4%" />
         {revenue && (
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
