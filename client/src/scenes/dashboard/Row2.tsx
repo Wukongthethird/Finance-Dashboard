@@ -193,7 +193,7 @@ const Row2 = () => {
             <YAxis
               type="number"
               dataKey="expense"
-              name="price"
+              name="expense"
               axisLine={false}
               tickLine={false}
               style={{ fontSize: "10px" }}
